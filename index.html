@@ -1,0 +1,1517 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Next Level Gaming - Consoles, games and accessories for the next generation of gamers.">
+<title>Next Level Gaming | Enter the Next Level</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #070b14;
+    --surface: #101827;
+    --surface2: #172337;
+    --text: #f5f7ff;
+    --muted: #a5b2c8;
+    --cyan: #00e5ff;
+    --purple: #9870ff;
+    --border: rgba(255,255,255,0.10);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', Arial, sans-serif;
+    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+    --bg: #eef3fa;
+    --surface: #ffffff;
+    --surface2: #e2eaf5;
+    --text: #111827;
+    --muted: #526078;
+    --border: rgba(0,0,0,0.12);
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Background effects */
+
+.background-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow-one {
+    background: var(--cyan);
+    top: 100px;
+    left: -200px;
+}
+
+.glow-two {
+    background: var(--purple);
+    right: -200px;
+    top: 500px;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    background: rgba(7,11,20,0.88);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(18px);
+}
+
+body.light nav {
+    background: rgba(238,243,250,0.9);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--cyan);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-button {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 13px;
+    font-size: 17px;
+}
+
+.cart-button {
+    background: var(--cyan);
+    color: #06111b;
+    border: none;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-weight: 800;
+}
+
+#cart-count {
+    background: #07111c;
+    color: white;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+
+/* Hero */
+
+.hero {
+    min-height: 460px;
+    padding: 90px 8% 75px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid rgba(0,229,255,0.35);
+    background: rgba(0,229,255,0.08);
+    padding: 8px 13px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 23px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 550px;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 13px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.primary-button, .secondary-button {
+    padding: 14px 22px;
+    border-radius: 9px;
+    font-weight: 800;
+    border: none;
+    transition: 0.25s;
+}
+
+.primary-button {
+    background: var(--cyan);
+    color: #06111b;
+}
+
+.secondary-button {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.primary-button:hover, .secondary-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Statistics */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 0 8% 55px;
+}
+
+.stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 22px;
+    border-radius: 13px;
+    text-align: center;
+}
+
+.stat strong {
+    color: var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* General sections */
+
+.section {
+    padding: 55px 8%;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-heading small {
+    color: var(--cyan);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+.section-heading h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    margin-top: 10px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Product controls */
+
+.product-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    background: var(--surface);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+.filter-button.active {
+    background: var(--cyan);
+    color: #06111b;
+    border-color: var(--cyan);
+    font-weight: 800;
+}
+
+.search-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 11px 14px;
+    color: var(--text);
+    width: 230px;
+    outline: none;
+}
+
+.search-box:focus {
+    border-color: var(--cyan);
+}
+
+/* Slideshow */
+
+.showcase {
+    background: linear-gradient(135deg, var(--surface), var(--surface2));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.showcase::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: var(--cyan);
+    opacity: 0.07;
+    filter: blur(100px);
+    right: 5%;
+    top: 10%;
+    border-radius: 50%;
+}
+
+.product-display {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.product-image-area {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    position: relative;
+}
+
+.product-image-area img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    transition: transform 0.4s;
+}
+
+.product-image-area:hover img {
+    transform: scale(1.06);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--cyan);
+    color: #06111b;
+    padding: 7px 11px;
+    font-size: 10px;
+    font-weight: 900;
+    border-radius: 5px;
+}
+
+.product-info {
+    animation: appear 0.4s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-category {
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.product-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(25px, 4vw, 39px);
+    margin: 15px 0;
+}
+
+.product-description {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.product-price {
+    color: var(--cyan);
+    font-size: 29px;
+    font-weight: 900;
+    margin: 23px 0;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.product-actions button {
+    padding: 13px 17px;
+    border-radius: 8px;
+    font-weight: 800;
+    border: none;
+}
+
+.add-button {
+    background: var(--cyan);
+    color: #06111b;
+}
+
+.favorite-button {
+    background: var(--surface);
+    border: 1px solid var(--border) !important;
+    color: var(--text);
+}
+
+.slide-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 27px;
+    position: relative;
+    z-index: 1;
+}
+
+.slide-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.slide-buttons button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 11px 17px;
+    border-radius: 8px;
+}
+
+.slide-buttons button:hover {
+    border-color: var(--cyan);
+}
+
+.slide-count {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.dot {
+    height: 7px;
+    width: 7px;
+    border-radius: 20px;
+    border: none;
+    background: #59677c;
+    transition: 0.3s;
+}
+
+.dot.active {
+    width: 27px;
+    background: var(--cyan);
+}
+
+/* No results */
+
+.no-results {
+    color: var(--muted);
+    padding: 35px;
+    text-align: center;
+    display: none;
+}
+
+/* About section */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 25px;
+}
+
+.about-card .symbol {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.about-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Contact */
+
+.contact-panel {
+    background: linear-gradient(120deg, #102a3d, #241c43);
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 17px;
+    padding: 40px;
+    text-align: center;
+}
+
+.contact-panel h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 27px;
+    margin-bottom: 13px;
+}
+
+.contact-panel p {
+    color: #c5d3e5;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Footer */
+
+footer {
+    border-top: 1px solid var(--border);
+    margin-top: 55px;
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Cart panel */
+
+.cart-overlay, .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.72);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cart-overlay.open, .modal-overlay.open {
+    display: flex;
+}
+
+.cart-panel, .quick-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.panel-heading h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 25px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    padding: 13px 0;
+}
+
+.cart-item h4 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.cart-item p {
+    color: var(--cyan);
+    font-size: 12px;
+}
+
+.remove-button {
+    background: transparent;
+    color: #ff647c;
+    border: 1px solid #ff647c;
+    padding: 7px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-weight: 900;
+}
+
+.cart-total span:last-child {
+    color: var(--cyan);
+}
+
+.cart-note {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 17px;
+}
+
+.empty-cart {
+    color: var(--muted);
+    text-align: center;
+    padding: 25px 0;
+}
+
+/* Quick view */
+
+.quick-modal img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.quick-modal h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 10px;
+}
+
+.quick-modal p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 13px;
+    margin-bottom: 13px;
+}
+
+/* Notification */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    opacity: 0;
+    background: var(--cyan);
+    color: #06111b;
+    padding: 13px 20px;
+    border-radius: 9px;
+    font-weight: 800;
+    font-size: 13px;
+    z-index: 300;
+    transition: 0.3s;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* Responsive design */
+
+@media (max-width: 800px) {
+    .nav-links {
+        display: none;
+    }
+
+    .product-display {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .product-image-area {
+        min-height: 260px;
+    }
+
+    .product-image-area img {
+        height: 230px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    nav {
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 65px 6%;
+        min-height: 420px;
+    }
+
+    .stats {
+        padding: 0 5% 35px;
+        gap: 8px;
+    }
+
+    .stat {
+        padding: 14px 7px;
+    }
+
+    .stat strong {
+        font-size: 17px;
+    }
+
+    .stat span {
+        font-size: 10px;
+    }
+
+    .section {
+        padding: 40px 5%;
+    }
+
+    .showcase {
+        padding: 17px;
+    }
+
+    .product-controls {
+        align-items: stretch;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .contact-panel {
+        padding: 30px 18px;
+    }
+
+    footer {
+        text-align: center;
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="#" class="logo">NEXT LEVEL<span style="color:white">.</span></a>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+        <button class="icon-button" id="theme-toggle" title="Toggle theme">☀</button>
+        <button class="cart-button" id="open-cart">
+            Cart <span id="cart-count">0</span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="eyebrow">WELCOME TO THE NEXT LEVEL</span>
+
+        <h1>
+            PLAY HARDER.<br>
+            <span class="gradient-text">GAME BETTER.</span>
+        </h1>
+
+        <p>
+            Discover premium gaming consoles, legendary titles and
+            essential accessories. Your next gaming experience starts here.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#products" class="primary-button">Explore Products →</a>
+            <a href="#about" class="secondary-button">Discover Our Store</a>
+        </div>
+    </div>
+</section>
+
+<!-- STATISTICS -->
+<section class="stats">
+    <div class="stat">
+        <strong>10+</strong>
+        <span>Featured Products</span>
+    </div>
+
+    <div class="stat">
+        <strong>3</strong>
+        <span>Product Categories</span>
+    </div>
+
+    <div class="stat">
+        <strong>100%</strong>
+        <span>Gaming Passion</span>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+
+    <div class="section-heading">
+        <small>THE COLLECTION</small>
+        <h2>EXPLORE OUR <span class="gradient-text">PRODUCTS</span></h2>
+        <p>Find your next console, game or gaming accessory.</p>
+    </div>
+
+    <div class="product-controls">
+        <div class="filters">
+            <button class="filter-button active" data-category="All">All</button>
+            <button class="filter-button" data-category="Consoles">Consoles</button>
+            <button class="filter-button" data-category="Games">Games</button>
+            <button class="filter-button" data-category="Accessories">Accessories</button>
+            <button class="filter-button" data-category="Favourites">♥ Favourites</button>
+        </div>
+
+        <input
+            type="search"
+            id="search"
+            class="search-box"
+            placeholder="Search products..."
+            aria-label="Search products"
+        >
+    </div>
+
+    <div class="showcase" id="showcase">
+
+        <div class="product-display">
+            <div class="product-image-area">
+                <span class="product-tag" id="product-tag">FEATURED</span>
+                <img id="product-image" src="images/ps5.jpg" alt="PlayStation 5">
+            </div>
+
+            <div class="product-info" id="product-info">
+                <span class="product-category" id="product-category">CONSOLES</span>
+                <h3 id="product-name">PlayStation 5</h3>
+                <p class="product-description" id="product-description">
+                    Experience powerful next-generation gaming.
+                </p>
+
+                <div class="product-price" id="product-price">₦950,000</div>
+
+                <div class="product-actions">
+                    <button class="add-button" id="add-to-cart">＋ Add to Cart</button>
+                    <button class="favorite-button" id="favorite-button">♡ Favourite</button>
+                    <button class="secondary-button" id="quick-view">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-navigation">
+            <div class="slide-buttons">
+                <button id="previous">← Previous</button>
+                <button id="next">Next →</button>
+            </div>
+
+            <span class="slide-count" id="slide-count">01 / 10</span>
+        </div>
+
+        <div class="dots" id="dots"></div>
+
+    </div>
+
+    <div class="no-results" id="no-results">
+        No products found. Try another search or category.
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+
+    <div class="section-heading">
+        <small>WHO WE ARE</small>
+        <h2>MORE THAN JUST <span class="gradient-text">GAMING</span></h2>
+        <p>
+            Next Level Gaming is built around the excitement of gaming
+            and the technology that makes every experience memorable.
+        </p>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-card">
+            <div class="symbol">🎮</div>
+            <h3>Gaming Consoles</h3>
+            <p>
+                Explore gaming systems from different generations,
+                from classic PlayStation consoles to modern systems.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="symbol">⚡</div>
+            <h3>Gaming Accessories</h3>
+            <p>
+                Discover accessories designed to make your gaming
+                sessions more immersive and enjoyable.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="symbol">🏆</div>
+            <h3>Great Experiences</h3>
+            <p>
+                We celebrate gaming, technology and the communities
+                that bring players together.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <div class="contact-panel">
+        <h2>READY TO LEVEL UP?</h2>
+        <p>
+            Have a question about a product? Get in touch with Next Level Gaming.
+        </p>
+        <p style="margin-top:18px;">
+            <strong>Address:</strong> Ashton Road Opposite Kabo Guest Inn, Kano<br>
+            <strong>Phone:</strong> +2347057633553
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Next Level Gaming. All Rights Reserved.</p>
+    <p>Designed and built by Jayden Chidumaga Okoro.</p>
+</footer>
+
+<!-- CART POPUP -->
+<div class="cart-overlay" id="cart-overlay">
+    <div class="cart-panel">
+        <div class="panel-heading">
+            <h2>YOUR CART</h2>
+            <button class="close-button" id="close-cart">×</button>
+        </div>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-total">
+            <span>Total</span>
+            <span id="cart-total">₦0</span>
+        </div>
+
+        <p class="cart-note">
+            This is a demonstration shopping cart for the Next Level Gaming
+            website. It does not process payments or place real orders.
+        </p>
+    </div>
+</div>
+
+<!-- QUICK VIEW POPUP -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="quick-modal">
+        <div class="panel-heading">
+            <h2>PRODUCT DETAILS</h2>
+            <button class="close-button" id="close-modal">×</button>
+        </div>
+
+        <img id="modal-image" src="" alt="">
+        <h3 id="modal-name"></h3>
+        <p id="modal-description"></p>
+        <strong id="modal-price" style="color:var(--cyan);font-size:22px;"></strong>
+    </div>
+</div>
+
+<div class="toast" id="toast">Product added to cart!</div>
+
+<script>
+/* PRODUCT INFORMATION */
+
+const products = [
+    {
+        name: "PlayStation 5",
+        category: "Consoles",
+        price: 950000,
+        image: "images/ps5.jpg",
+        description: "Experience powerful next-generation gaming with incredible graphics, fast loading and immersive gameplay.",
+        tag: "BEST SELLER"
+    },
+    {
+        name: "PlayStation 5 Pro",
+        category: "Consoles",
+        price: 1350000,
+        image: "images/ps5pro.jpg",
+        description: "Enjoy enhanced graphics, improved performance and an elevated PlayStation gaming experience.",
+        tag: "PREMIUM"
+    },
+    {
+        name: "PlayStation 5 Slim",
+        category: "Consoles",
+        price: 850000,
+        image: "images/ps5slim.jpg",
+        description: "A compact PlayStation 5 console that delivers impressive next-generation performance.",
+        tag: "COMPACT DESIGN"
+    },
+    {
+        name: "EA Sports FC 27",
+        category: "Games",
+        price: 120000,
+        image: "images/fc27.jpg",
+        description: "Enjoy football gaming with teams, players and exciting match experiences.",
+        tag: "FOOTBALL"
+    },
+    {
+        name: "Grand Theft Auto VI",
+        category: "Games",
+        price: 150000,
+        image: "images/gta6.jpg",
+        description: "Explore a detailed open-world adventure in the next chapter of the Grand Theft Auto series.",
+        tag: "FEATURED GAME"
+    },
+    {
+        name: "Call of Duty",
+        category: "Games",
+        price: 110000,
+        image: "images/cod.jpg",
+        description: "Experience an immersive first-person action game with engaging gameplay.",
+        tag: "ACTION"
+    },
+    {
+        name: "Logitech G29 Racing Wheel",
+        category: "Accessories",
+        price: 650000,
+        image: "images/steeringwheel.jpg",
+        description: "Bring racing games closer to reality with a racing wheel and pedal setup.",
+        tag: "RACING GEAR"
+    },
+    {
+        name: "PlayStation 4",
+        category: "Consoles",
+        price: 350000,
+        image: "images/ps4.jpg",
+        description: "Enjoy a huge collection of popular games on this iconic PlayStation console.",
+        tag: "CLASSIC"
+    },
+    {
+        name: "PlayStation 3",
+        category: "Consoles",
+        price: 120000,
+        image: "images/ps3.jpg",
+        description: "Rediscover classic PlayStation gaming and memorable titles.",
+        tag: "LEGACY"
+    },
+    {
+        name: "PlayStation Portal",
+        category: "Accessories",
+        price: 450000,
+        image: "images/portal.jpg",
+        description: "Use remote play to enjoy compatible PlayStation 5 games over Wi-Fi.",
+        tag: "PORTABLE PLAY"
+    }
+];
+
+/* WEBSITE STATE */
+
+let currentIndex = 0;
+let visibleProducts = [...products];
+let activeCategory = "All";
+let cart = [];
+let favourites = [];
+
+const money = amount =>
+    "₦" + amount.toLocaleString("en-NG");
+
+/* DISPLAY PRODUCT */
+
+function showProduct(index) {
+
+    if (visibleProducts.length === 0) return;
+
+    currentIndex = (index + visibleProducts.length) % visibleProducts.length;
+
+    const product = visibleProducts[currentIndex];
+
+    const info = document.getElementById("product-info");
+
+    info.style.animation = "none";
+    void info.offsetWidth;
+    info.style.animation = "appear 0.4s ease";
+
+    document.getElementById("product-image").src = product.image;
+    document.getElementById("product-image").alt = product.name;
+    document.getElementById("product-tag").textContent = product.tag;
+    document.getElementById("product-category").textContent = product.category;
+    document.getElementById("product-name").textContent = product.name;
+    document.getElementById("product-description").textContent = product.description;
+    document.getElementById("product-price").textContent = money(product.price);
+
+    document.getElementById("slide-count").textContent =
+        String(currentIndex + 1).padStart(2, "0") +
+        " / " +
+        String(visibleProducts.length).padStart(2, "0");
+
+    const favouriteButton = document.getElementById("favorite-button");
+
+    favouriteButton.textContent = favourites.includes(product.name)
+        ? "♥ Saved"
+        : "♡ Favourite";
+
+    createDots();
+}
+
+/* SLIDESHOW DOTS */
+
+function createDots() {
+
+    const dotsContainer = document.getElementById("dots");
+    dotsContainer.innerHTML = "";
+
+    visibleProducts.forEach((product, index) => {
+
+        const dot = document.createElement("button");
+
+        dot.className = index === currentIndex ? "dot active" : "dot";
+        dot.title = "Show " + product.name;
+        dot.setAttribute("aria-label", "Show " + product.name);
+
+        dot.addEventListener("click", () => {
+            showProduct(index);
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+}
+
+/* NEXT AND PREVIOUS */
+
+document.getElementById("next").addEventListener("click", () => {
+    showProduct(currentIndex + 1);
+    resetAutoplay();
+});
+
+document.getElementById("previous").addEventListener("click", () => {
+    showProduct(currentIndex - 1);
+    resetAutoplay();
+});
+
+/* FILTER PRODUCTS */
+
+function filterProducts() {
+
+    const searchText = document.getElementById("search").value.toLowerCase();
+
+    visibleProducts = products.filter(product => {
+
+        const matchesSearch =
+            product.name.toLowerCase().includes(searchText) ||
+            product.category.toLowerCase().includes(searchText);
+
+        let matchesCategory = true;
+
+        if (activeCategory === "Favourites") {
+            matchesCategory = favourites.includes(product.name);
+        } else if (activeCategory !== "All") {
+            matchesCategory = product.category === activeCategory;
+        }
+
+        return matchesSearch && matchesCategory;
+    });
+
+    document.getElementById("no-results").style.display =
+        visibleProducts.length === 0 ? "block" : "none";
+
+    document.getElementById("showcase").style.display =
+        visibleProducts.length === 0 ? "none" : "block";
+
+    currentIndex = 0;
+
+    if (visibleProducts.length > 0) {
+        showProduct(0);
+    }
+}
+
+document.querySelectorAll(".filter-button").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document.querySelectorAll(".filter-button").forEach(item => {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        activeCategory = button.dataset.category;
+
+        filterProducts();
+    });
+});
+
+document.getElementById("search").addEventListener("input", filterProducts);
+
+/* FAVOURITES */
+
+document.getElementById("favorite-button").addEventListener("click", () => {
+
+    const product = visibleProducts[currentIndex];
+
+    if (favourites.includes(product.name)) {
+        favourites = favourites.filter(name => name !== product.name);
+        showToast("Removed from favourites");
+    } else {
+        favourites.push(product.name);
+        showToast("Added to favourites!");
+    }
+
+    showProduct(currentIndex);
+});
+
+/* ADD TO CART */
+
+document.getElementById("add-to-cart").addEventListener("click", () => {
+
+    const product = visibleProducts[currentIndex];
+
+    cart.push(product);
+
+    updateCart();
+    showToast(product.name + " added to cart!");
+});
+
+function updateCart() {
+
+    document.getElementById("cart-count").textContent = cart.length;
+
+    const container = document.getElementById("cart-items");
+
+    container.innerHTML = "";
+
+    let total = 0;
+
+    if (cart.length === 0) {
+        container.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+    }
+
+    cart.forEach((product, index) => {
+
+        total += product.price;
+
+        const item = document.createElement("div");
+        item.className = "cart-item";
+
+        const details = document.createElement("div");
+
+        const name = document.createElement("h4");
+        name.textContent = product.name;
+
+        const price = document.createElement("p");
+        price.textContent = money(product.price);
+
+        details.appendChild(name);
+        details.appendChild(price);
+
+        const remove = document.createElement("button");
+        remove.className = "remove-button";
+        remove.textContent = "Remove";
+
+        remove.addEventListener("click", () => {
+            cart.splice(index, 1);
+            updateCart();
+        });
+
+        item.appendChild(details);
+        item.appendChild(remove);
+
+        container.appendChild(item);
+    });
+
+    document.getElementById("cart-total").textContent = money(total);
+}
+
+/* CART OPEN AND CLOSE */
+
+const cartOverlay = document.getElementById("cart-overlay");
+
+document.getElementById("open-cart").addEventListener("click", () => {
+    cartOverlay.classList.add("open");
+});
+
+document.getElementById("close-cart").addEventListener("click", () => {
+    cartOverlay.classList.remove("open");
+});
+
+cartOverlay.addEventListener("click", event => {
+    if (event.target === cartOverlay) {
+        cartOverlay.classList.remove("open");
+    }
+});
+
+/* QUICK VIEW */
+
+const modalOverlay = document.getElementById("modal-overlay");
+
+document.getElementById("quick-view").addEventListener("click", () => {
+
+    const product = visibleProducts[currentIndex];
+
+    document.getElementById("modal-image").src = product.image;
+    document.getElementById("modal-image").alt = product.name;
+    document.getElementById("modal-name").textContent = product.name;
+    document.getElementById("modal-description").textContent = product.description;
+    document.getElementById("modal-price").textContent = money(product.price);
+
+    modalOverlay.classList.add("open");
+});
+
+document.getElementById("close-modal").addEventListener("click", () => {
+    modalOverlay.classList.remove("open");
+});
+
+modalOverlay.addEventListener("click", event => {
+    if (event.target === modalOverlay) {
+        modalOverlay.classList.remove("open");
+    }
+});
+
+/* LIGHT AND DARK THEME */
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+
+    document.body.classList.toggle("light");
+
+    const lightMode = document.body.classList.contains("light");
+
+    document.getElementById("theme-toggle").textContent =
+        lightMode ? "☾" : "☀";
+});
+
+/* AUTO PLAY */
+
+let autoplay = setInterval(() => {
+    if (visibleProducts.length > 1) {
+        showProduct(currentIndex + 1);
+    }
+}, 6000);
+
+function resetAutoplay() {
+    clearInterval(autoplay);
+
+    autoplay = setInterval(() => {
+        if (visibleProducts.length > 1) {
+            showProduct(currentIndex + 1);
+        }
+    }, 6000);
+}
+
+/* PAUSE AUTO PLAY WHILE VIEWING */
+
+const showcase = document.getElementById("showcase");
+
+showcase.addEventListener("mouseenter", () => {
+    clearInterval(autoplay);
+});
+
+showcase.addEventListener("mouseleave", resetAutoplay);
+
+/* KEYBOARD NAVIGATION */
+
+document.addEventListener("keydown", event => {
+
+    const tag = document.activeElement.tagName;
+
+    if (tag === "INPUT" || tag === "TEXTAREA") return;
+
+    if (event.key === "ArrowRight") {
+        showProduct(currentIndex + 1);
+        resetAutoplay();
+    }
+
+    if (event.key === "ArrowLeft") {
+        showProduct(currentIndex - 1);
+        resetAutoplay();
+    }
+
+    if (event.key === "Escape") {
+        cartOverlay.classList.remove("open");
+        modalOverlay.classList.remove("open");
+    }
+});
+
+/* NOTIFICATIONS */
+
+let toastTimer;
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+/* START WEBSITE */
+
+showProduct(0);
+updateCart();
+
+</script>
+
+</body>
+</html>
